@@ -26,7 +26,7 @@ public class PessoaController {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    @GetMapping(path="/id")
+    @GetMapping
     public List<Pessoa> pessoa() {
         List<Pessoa> pessoa = pessoaRepository.findAll();
         return pessoa;
@@ -37,7 +37,7 @@ public class PessoaController {
         return pessoaRepository.saveAll(Arrays.asList(pessoa));
     }
 
-    @PutMapping(path= "/id")
+    @PutMapping
     public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 
         Pessoa cadAtualizado = pessoaRepository.save(pessoa);
@@ -45,7 +45,7 @@ public class PessoaController {
         return new ResponseEntity<Pessoa>(cadAtualizado, HttpStatus.OK);
     }
 
-    @DeleteMapping(path= "/id")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<String> delete(@RequestParam Long id) {
         pessoaRepository.deleteById(id);
