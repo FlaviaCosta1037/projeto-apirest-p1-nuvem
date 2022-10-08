@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +21,13 @@ import com.springapi.provan1.entities.Pessoa;
 import com.springapi.provan1.repository.PessoaRepository;
 
 @RestController
-@RequestMapping(value="/pessoa")
+@RequestMapping(value="/pessoa", method = RequestMethod.GET)
 public class PessoaController {
 
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    @GetMapping("/api/pessoas")
+    @GetMapping
     public List<Pessoa> pessoa() {
         List<Pessoa> pessoa = pessoaRepository.findAll();
         return pessoa;
