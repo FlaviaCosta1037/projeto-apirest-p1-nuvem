@@ -1,19 +1,18 @@
-package com.springapi.provan1.entitie;
-
-import java.util.Objects;
-
+package com.springapi.provan1.entities;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 
+
+@AllArgsConstructor
 @Entity
-@Table(name = "tb_pessoa")
+@Table(name = "pessoa")
 public class Pessoa {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String nome;
     private Long idade;
@@ -95,20 +94,10 @@ public class Pessoa {
         return getClass().hashCode();
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Pessoa other = (Pessoa) obj;
-        return Objects.equals(id, other.id);
-    }
 
     @Override
     public String toString() {
         return "Pessoa [id=" + id + ", nome=" + nome + ", idade=" + idade + ", peso=" + peso + ", altura=" + altura
                 + ", email=" + email + ", fone=" + fone + "]";
     }
+}

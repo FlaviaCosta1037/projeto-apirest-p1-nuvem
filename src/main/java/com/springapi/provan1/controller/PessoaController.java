@@ -16,17 +16,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.provan1.entitie.Pessoa;
-import com.springboot.provan1.repository.PessoaRepository;
+import com.springapi.provan1.entities.Pessoa;
+import com.springapi.provan1.repository.PessoaRepository;
 
 @RestController
-@RequestMapping(value = "/pessoa")
+@RequestMapping(path = "/pessoa")
 public class PessoaController {
 
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    @GetMapping
+    @GetMapping(path="/id")
     public List<Pessoa> pessoa() {
         List<Pessoa> pessoa = pessoaRepository.findAll();
         return pessoa;
@@ -37,7 +37,7 @@ public class PessoaController {
         return pessoaRepository.saveAll(Arrays.asList(pessoa));
     }
 
-    @PutMapping
+    @PutMapping(path= "/id")
     public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 
         Pessoa cadAtualizado = pessoaRepository.save(pessoa);
@@ -45,10 +45,11 @@ public class PessoaController {
         return new ResponseEntity<Pessoa>(cadAtualizado, HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping(path= "/id")
     @ResponseBody
     public ResponseEntity<String> delete(@RequestParam Long id) {
         pessoaRepository.deleteById(id);
 
         return new ResponseEntity<String>("User deletado com sucesso", HttpStatus.OK);
     }
+}
