@@ -26,18 +26,18 @@ public class PessoaController {
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    @GetMapping
+    @GetMapping("/api/pessoas")
     public List<Pessoa> pessoa() {
         List<Pessoa> pessoa = pessoaRepository.findAll();
         return pessoa;
     }
 
-    @PostMapping
+    @PostMapping("/api/adicionar")
     public List<Pessoa> Post(@RequestBody Pessoa pessoa) {
         return pessoaRepository.saveAll(Arrays.asList(pessoa));
     }
 
-    @PutMapping
+    @PutMapping("/api/atualizar")
     public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 
         Pessoa cadAtualizado = pessoaRepository.save(pessoa);
@@ -45,7 +45,7 @@ public class PessoaController {
         return new ResponseEntity<Pessoa>(cadAtualizado, HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/api/deletar")
     @ResponseBody
     public ResponseEntity<String> delete(@RequestParam Long id) {
         pessoaRepository.deleteById(id);
