@@ -20,7 +20,7 @@ import com.springapi.provan1.entities.Pessoa;
 import com.springapi.provan1.repository.PessoaRepository;
 
 @RestController
-@RequestMapping(path = "/pessoa")
+@RequestMapping(value="/pessoa")
 public class PessoaController {
 
     @Autowired
