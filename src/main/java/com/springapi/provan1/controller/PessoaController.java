@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +20,7 @@ import com.springapi.provan1.entities.Pessoa;
 import com.springapi.provan1.repository.PessoaRepository;
 
 @RestController
-@RequestMapping(value="/pessoa", method = RequestMethod.GET)
+@RequestMapping("/pessoa")
 public class PessoaController {
 
     @Autowired
@@ -33,12 +32,12 @@ public class PessoaController {
         return pessoa;
     }
 
-    @PostMapping("/api/adicionar")
+    @PostMapping
     public List<Pessoa> Post(@RequestBody Pessoa pessoa) {
         return pessoaRepository.saveAll(Arrays.asList(pessoa));
     }
 
-    @PutMapping("/api/atualizar")
+    @PutMapping
     public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 
         Pessoa cadAtualizado = pessoaRepository.save(pessoa);
@@ -46,7 +45,7 @@ public class PessoaController {
         return new ResponseEntity<Pessoa>(cadAtualizado, HttpStatus.OK);
     }
 
-    @DeleteMapping("/api/deletar")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<String> delete(@RequestParam Long id) {
         pessoaRepository.deleteById(id);
