@@ -20,24 +20,24 @@ import com.springapi.provan1.entities.Pessoa;
 import com.springapi.provan1.repository.PessoaRepository;
 
 @RestController
-@RequestMapping("/pessoa")
+@RequestMapping("/")
 public class PessoaController {
 
     @Autowired
     private PessoaRepository pessoaRepository;
 
-    @GetMapping
+    @GetMapping(path="/usuarios")
     public List<Pessoa> pessoa() {
         List<Pessoa> pessoa = pessoaRepository.findAll();
         return pessoa;
     }
 
-    @PostMapping
+    @PostMapping(path="/usuarios/adicionar")
     public List<Pessoa> Post(@RequestBody Pessoa pessoa) {
         return pessoaRepository.saveAll(Arrays.asList(pessoa));
     }
 
-    @PutMapping
+    @PutMapping(path="/usuarios/editar")
     public ResponseEntity<Pessoa> update(@RequestBody Pessoa pessoa) {
 
         Pessoa cadAtualizado = pessoaRepository.save(pessoa);
@@ -45,7 +45,7 @@ public class PessoaController {
         return new ResponseEntity<Pessoa>(cadAtualizado, HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping(path="/usuarios/deletar")
     @ResponseBody
     public ResponseEntity<String> delete(@RequestParam Long id) {
         pessoaRepository.deleteById(id);
