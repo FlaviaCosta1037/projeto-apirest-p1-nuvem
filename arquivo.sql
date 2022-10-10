@@ -19,19 +19,19 @@
 -- Table structure for table `pessoa`
 --
 
-DROP TABLE IF EXISTS `pessoa`;
+DROP TABLE IF EXISTS "pessoa";
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pessoa` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) NOT NULL,
-  `idade` int NOT NULL,
-  `peso` decimal(10,0) NOT NULL,
-  `altura` decimal(10,0) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `fone` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+CREATE TABLE "pessoa" (
+  "id" int NOT NULL IDENTITY,
+  "nome" varchar(255) NOT NULL,
+  "idade" int NOT NULL,
+  "peso" decimal(10,0) NOT NULL,
+  "altura" decimal(10,0) NOT NULL,
+  "email" varchar(255) NOT NULL,
+  "fone" varchar(255) NOT NULL,
+  PRIMARY KEY ("id")
+) TYPE=InnoDB IDENTITY=12 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES (1,'Flávia',36,64,2,'flavinha.goncalves@gmail.com','81999999999'),(5,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(6,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(7,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(8,'Flávia',36,64,2,'flavinha.goncalves@gmail.com','81999999999'),(9,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(10,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(11,'Flávia',36,64,2,'flavinha.goncalves@gmail.com','81999999999');
+INSERT INTO "pessoa" VALUES (1,'Flávia',36,64,2,'flavinha.goncalves@gmail.com','81999999999'),(5,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(6,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(7,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(8,'Flávia',36,64,2,'flavinha.goncalves@gmail.com','81999999999'),(9,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(10,'Paty Timoteo',39,54,2,'patytimoteo@hotmail.com','81999999999'),(11,'Flávia',36,64,2,'flavinha.goncalves@gmail.com','81999999999');
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
