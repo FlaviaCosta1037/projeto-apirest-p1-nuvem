@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `pessoa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pessoa` (
-  `id` int NOT NULL IDENTITY=0,
+  `id` int NOT NULL IDENTITY,
   `nome` varchar(255) NOT NULL,
   `idade` int NOT NULL,
   `peso` decimal(10,0) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `pessoa` (
   `email` varchar(255) NOT NULL,
   `fone` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB IDENTITY=0 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
